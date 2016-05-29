@@ -1,7 +1,6 @@
 Cucumber JVM Scala Example
 ==========================
 Jerrico Gamis <jecklgamis@gmail.com>
-:numbered:
 :toc:
 :icons:
 :website: https://github.com/jecklgamis/cucumber-jvm-scala-example
@@ -108,7 +107,14 @@ Running Cucumber Tests in CLI
 Using executable jar file:
 ----
 mvn clean package
-java -Dcucumber.options="--plugin pretty --plugin html:cucumber/html  --plugin json:cucumber/json/cucumber.json --tags ~@Wip" -jar target/cucumber-jvm-scala-example.jar
+java -jar target/cucumber-jvm-scala-example.jar --plugin pretty --plugin html:cucumber/html --json json:cucumber/json/cucumber.json  --glue steps classpath:features --tags ~@Wip
+----
+
+or using `cucumber.options` environment variable:
+
+----
+mvn clean package
+java -Dcucumber.options="--plugin pretty --plugin html:cucumber/html  --plugin json:cucumber/json/cucumber.json  --tags ~@Wip --glue steps classpath:features" -jar target/cucumber-jvm-scala-example.jar
 ----
 
 Using maven exec:plugin:
@@ -116,7 +122,7 @@ Using maven exec:plugin:
 mvn exec:java -Dcucumber.options="--plugin pretty --plugin html:cucumber/html --plugin json:cucumber/json/cucumber.json --tags ~@Wip --tags @ExampleFeature"
 ----
 
-The above command line examples, generate reports in `cucumber/html` and in  `cucumber/json` directories
+The above command line examples generate reports in `cucumber/html` and in  `cucumber/json` directories
 
 Sharing State In Steps
 ----------------------

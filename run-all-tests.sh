@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-java -Dcucumber.options="--plugin pretty --plugin html:cucumber/html --plugin json:cucumber/json/cucumber.json --tags ~@Wip" -jar target/cucumber-jvm-scala-example.jar
+set -ex
+java -jar target/cucumber-jvm-scala-example.jar --plugin pretty --glue steps classpath:features --tags ~@Wip --tags @ExampleFeature
