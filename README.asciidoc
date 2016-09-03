@@ -1,5 +1,5 @@
-Cucumber JVM Scala Example
-==========================
+# Cucumber JVM Scala Example image:https://travis-ci.org/jecklgamis/cucumber-jvm-scala-example.svg?branch=master["Build Status", link="https://travis-ci.org/jecklgamis/cucumber-jvm-scala-example"]
+
 Jerrico Gamis <jecklgamis@gmail.com>
 :toc:
 :icons:
