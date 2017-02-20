@@ -124,6 +124,10 @@ mvn exec:java -Dcucumber.options="--plugin pretty --plugin html:cucumber/html --
 
 The above command line examples generate reports in `cucumber/html` and in  `cucumber/json` directories
 
+Running Cucumber Tests in IDE (Intellij IDEA)
+---------------------------------------------
+In the `Run/Debug Configuration` , add the steps directories (in this example, `steps`) in the `Glue` text field.
+
 Sharing State In Steps
 ----------------------
 * A number of options here, instance variables, thread local map, or containers
