@@ -10,5 +10,5 @@ import org.junit.runner.RunWith
   tags = Array("~@Wip"),
   glue = Array("classpath:steps"),
   plugin = Array("pretty", "html:target/cucumber/html"))
-class ExampleFeatureRunner
+class ExampleFeatureRunnerTest
 

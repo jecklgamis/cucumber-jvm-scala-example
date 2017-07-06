@@ -104,6 +104,11 @@ Given("""^this pre condition$""") { () =>
 Running Cucumber Tests in CLI
 -----------------------------
 
+Using maven test:
+----
+mvn test
+----
+
 Using executable jar file:
 ----
 mvn clean package
