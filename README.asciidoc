@@ -135,7 +135,7 @@ In the `Run/Debug Configuration` , add the steps directories (in this example, `
 
 Sharing State In Steps
 ----------------------
-* A number of options here, instance variables, thread local map, or containers
+* A number of options here, instance variables, thread local map.
 
 Links
 -----
