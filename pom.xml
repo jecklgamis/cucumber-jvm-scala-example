@@ -10,7 +10,7 @@
 
     <properties>
         <scala.version>2.12.8</scala.version>
-        <cucumber.version>4.2.6</cucumber.version>
+        <cucumber.version>4.3.0</cucumber.version>
     </properties>
 
     <repositories>
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.25</version>
+            <version>1.7.26</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
