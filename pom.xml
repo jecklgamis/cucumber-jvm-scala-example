@@ -10,7 +10,7 @@
 
     <properties>
         <scala.version>2.12.8</scala.version>
-        <cucumber.version>4.3.0</cucumber.version>
+        <cucumber.version>4.4.0</cucumber.version>
     </properties>
 
     <repositories>
