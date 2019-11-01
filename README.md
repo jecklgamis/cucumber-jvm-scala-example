@@ -1,6 +1,7 @@
 ## Cucumber JVM Scala Example 
 
-[![Build Status](https://travis-ci.org/jecklgamis/cucumber-jvm-scala-example.svg?branch=master)](https://travis-ci.org/jecklgamis/cucumber-jvm-scala-example)
+[![CircleCI](https://circleci.com/gh/jecklgamis/cucumber-jvm-scala-example.svg?style=svg)](https://circleci.com/gh/jecklgamis/cucumber-jvm-scala-example)
+
 This is an example Cucumber-JVM project.
 
 * Uses Scala step definitions
