@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+    working_directory: ~/cucumber-jvm-scala-example
+    steps:
+      - checkout
+      - restore_cache:
+          paths:
+            - ~/.m2
+          key: cucumber-jvm-scala-example-{{ checksum "pom.xml" }}
+      - run: mvn dependency:go-offline
+      - run: mvn clean install
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: cucumber-jvm-scala-example-{{ checksum "pom.xml" }}
