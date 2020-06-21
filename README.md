@@ -143,18 +143,6 @@ and right click on a specific feature then click Run.
 * https://github.com/jecklgamis/cucumber-jvm-java-example
 * https://github.com/jecklgamis/cucumber-jvm-kotlin-example
 
-## Example Target Apps
-
-Dropwizard Apps:
-* https://github.com/jecklgamis/dropwizard-java-example
-* https://github.com/jecklgamis/dropwizard-kotlin-example
-* https://github.com/jecklgamis/dropwizard-scala-example
-
-Spring Boot Apps:
-* https://github.com/jecklgamis/spring-boot-java-example
-* https://github.com/jecklgamis/spring-boot-kotlin-example
-* https://github.com/jecklgamis/spring-boot-scala-example
-
 ## Links
 * https://cucumber.io/docs
 * http://github.com/cucumber/cucumber-jvm
