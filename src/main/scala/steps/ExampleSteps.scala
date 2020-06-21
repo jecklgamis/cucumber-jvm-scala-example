@@ -1,15 +1,15 @@
 package steps
 
-import cucumber.api.scala.{EN, ScalaDsl}
+import io.cucumber.scala.{EN, ScalaDsl, Scenario}
 import org.slf4j.LoggerFactory
 
 class ExampleSteps extends ScalaDsl with EN {
   private val log = LoggerFactory.getLogger(classOf[ExampleSteps])
 
-  Before { scenario =>
+  Before { _: Scenario =>
     log.info("Before...")
   }
-  After { scenario =>
+  After { _: Scenario =>
     log.info("...After")
   }
 

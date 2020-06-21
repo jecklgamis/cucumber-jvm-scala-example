@@ -100,13 +100,33 @@ PLUGINS="--plugin pretty --plugin html:cucumber/html --plugin json:cucumber/json
 java -jar target/cucumber-jvm-scala-example.jar ${PLUGINS} --glue steps classpath:features  --tags "not @Wip" --tags @ExampleFeature
 ```
 
-Using maven exec:plugin. 
+Using maven exec:plugin: 
 ```
 PLUGINS="--plugin pretty --plugin html:cucumber/html --plugin json:cucumber/json/cucumber.json"
 mvn exec:java -Dcucumber.options="${PLUGINS} --tags @ExampleFeature --tags 'not @Wip' --glue steps classpath:features"
 ```
 
-The above command line examples generate reports in `cucumber/html` and in  `cucumber/json` directories
+The above command line examples generate reports in `cucumber/html` and in  `cucumber/json` directories.
+
+Using Docker:
+
+Build Docker image (see `build-docker-image.sh`)
+```shell script
+IMAGE_NAME=jecklgamis/cucumber-jvm-scala-example
+IMAGE_TAG=latest
+docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+```
+
+Run Docker image (see `run-all-tests-using-docker.sh`)
+```shell script
+IMAGE_NAME=jecklgamis/cucumber-jvm-scala-example
+IMAGE_TAG=latest
+
+JAVA_OPTS=${JAVA_OPTS:-""}
+ARGS=${ARGS:-"--plugin pretty --plugin html:cucumber/html --plugin json:cucumber/json/cucumber.json --glue steps classpath:features --tags @ExampleFeature"}
+
+docker run -e "JAVA_OPTS=${JAVA_OPTS}" -e "ARGS=${ARGS}" ${IMAGE_NAME}:${IMAGE_TAG}
+```
 
 ## Running Cucumber Tests from IDE
 

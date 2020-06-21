@@ -9,8 +9,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <scala.version>2.12.10</scala.version>
-        <cucumber.version>4.7.1</cucumber.version>
+        <scala.version>2.13.2</scala.version>
+        <cucumber.version>6.1.1</cucumber.version>
     </properties>
 
     <repositories>
@@ -31,7 +31,7 @@
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-scala_2.12</artifactId>
+            <artifactId>cucumber-scala_2.13</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
         <dependency>
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.26</version>
+            <version>1.7.30</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -58,7 +58,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -122,7 +122,7 @@
                                         implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>cucumber.api.cli.Main</mainClass>
+                                    <mainClass>io.cucumber.core.cli.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -132,7 +132,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -146,7 +146,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -156,6 +156,14 @@
                 </executions>
                 <configuration>
                     <mainClass>cucumber.api.cli.Main</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
