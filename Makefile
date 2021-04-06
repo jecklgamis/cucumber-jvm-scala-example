@@ -5,7 +5,7 @@ default:
 dist:
 	./mvnw clean package
 image:
-	 docker build -t $(IMAGE_NAME):$(IMAGE_TAG) -t $(IMAGE_NAME):latest .
+	 docker build -t $(IMAGE_NAME):$(IMAGE_TAG) -t $(IMAGE_NAME):$(IMAGE_TAG) .
 run:
 	 docker run $(IMAGE_NAME):$(IMAGE_TAG)
 run-bash:
