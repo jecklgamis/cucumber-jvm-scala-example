@@ -1,6 +1,6 @@
 ## Cucumber JVM Scala Example 
 
-[![CircleCI](https://circleci.com/gh/jecklgamis/cucumber-jvm-scala-example.svg?style=svg)](https://circleci.com/gh/jecklgamis/cucumber-jvm-scala-example)
+[![Build](https://github.com/jecklgamis/cucumber-jvm-scala-example/actions/workflows/build.yml/badge.svg)](https://github.com/jecklgamis/cucumber-jvm-scala-example/actions/workflows/build.yml)
 
 This is an example Cucumber-JVM project.
 
@@ -140,7 +140,7 @@ and right click on a specific feature then click Run.
 * A number of options here, instance variables, thread local map.
 
 ## Other Cucumber-JVM Examples 
-* https://github.com/jecklgamis/cucumber-jvm-java-example
+* https://github.com/jecklgamis/cucumber-jvm-scala-example
 * https://github.com/jecklgamis/cucumber-jvm-kotlin-example
 
 ## Links
