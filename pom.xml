@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <scala.version>2.13.6</scala.version>
+        <scala.version>2.13.9</scala.version>
         <cucumber.version>6.10.4</cucumber.version>
     </properties>
 
