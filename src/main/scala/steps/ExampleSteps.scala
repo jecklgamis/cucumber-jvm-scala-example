@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory
 class ExampleSteps extends ScalaDsl with EN {
   private val log = LoggerFactory.getLogger(classOf[ExampleSteps])
 
-  Before { _: Scenario =>
+  Before { (_: Scenario) =>
     log.info("Before...")
   }
-  After { _: Scenario =>
+  After { (_: Scenario) =>
     log.info("...After")
   }
 
