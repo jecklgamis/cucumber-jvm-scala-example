@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 IMAGE_NAME=jecklgamis/cucumber-jvm-scala-example
-IMAGE_TAG=latest
+IMAGE_TAG=main
 
 JAVA_OPTS=${JAVA_OPTS:-""}
 ARGS=${ARGS:-"--plugin pretty --plugin html:cucumber/index.html --plugin json:cucumber/json/cucumber.json --glue steps classpath:features --tags @ExampleFeature"}

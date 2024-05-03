@@ -2,6 +2,9 @@
 
 [![Build](https://github.com/jecklgamis/cucumber-jvm-scala-example/actions/workflows/build.yml/badge.svg)](https://github.com/jecklgamis/cucumber-jvm-scala-example/actions/workflows/build.yml)
 
+## Requirements
+* JDK 21
+
 This is an example Cucumber-JVM project.
 
 * Uses Scala step definitions

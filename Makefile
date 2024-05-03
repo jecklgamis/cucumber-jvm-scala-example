@@ -1,5 +1,5 @@
 IMAGE_NAME:=jecklgamis/cucumber-jvm-scala-example
-IMAGE_TAG:=latest
+IMAGE_TAG:=$(shell git rev-parse --abbrev-ref HEAD)
 default:
 	cat ./Makefile
 dist:
