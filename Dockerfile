@@ -12,7 +12,7 @@ RUN chown -R app:app $APP_HOME
 
 WORKDIR $APP_HOME
 USER app
-CMD ["/docker-entrypoint.sh"]
 COPY docker-entrypoint.sh /
+CMD ["/docker-entrypoint.sh"]
 
 
