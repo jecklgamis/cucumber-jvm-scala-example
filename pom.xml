@@ -22,22 +22,22 @@
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala3-library_3</artifactId>
-            <version>3.5.0-RC1-bin-20240502-05354ba-NIGHTLY</version>
+            <version>3.6.0-RC1-bin-20240703-75a15c2-NIGHTLY</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-scala_3</artifactId>
-            <version>8.22.0</version>
+            <version>8.23.0</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-core</artifactId>
-            <version>7.17.0</version>
+            <version>7.18.0</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>7.17.0</version>
+            <version>7.18.0</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

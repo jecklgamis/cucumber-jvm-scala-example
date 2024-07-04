@@ -122,8 +122,8 @@ docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
 
 Run Docker image (see `run-all-tests-using-docker.sh`)
 ```shell script
-IMAGE_NAME=jecklgamis/cucumber-jvm-scala-example
-IMAGE_TAG=latest
+IMAGE_NAME=cucumber-jvm-scala-example
+IMAGE_TAG=main
 
 JAVA_OPTS=${JAVA_OPTS:-""}
 ARGS=${ARGS:-"--plugin pretty --plugin html:cucumber/html --plugin json:cucumber/json/cucumber.json --glue steps classpath:features --tags @ExampleFeature"}
