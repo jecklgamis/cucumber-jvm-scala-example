@@ -1,9 +1,9 @@
 FROM ubuntu:24.04
-MAINTAINER Jerrico Gamis <jecklgamis@gmail.com>
+LABEL org.opencontainers.image.authors="jecklgamis@gmail.com"
 
 RUN apt update -y && apt install -y openjdk-21-jre-headless && rm -rf /var/lib/apt/lists/*
 
-ENV APP_HOME /app
+ENV APP_HOME=/app
 RUN mkdir -m 0755 -p $APP_HOME
 COPY target/cucumber-jvm-scala-example.jar $APP_HOME
 
