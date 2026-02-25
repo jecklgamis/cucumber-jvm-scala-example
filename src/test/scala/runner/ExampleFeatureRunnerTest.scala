@@ -1,13 +1,8 @@
 package runner
 
-import io.cucumber.junit.{Cucumber, CucumberOptions}
-import org.junit.runner.RunWith
+import org.junit.platform.suite.api.{IncludeEngines, SelectClasspathResource, Suite}
 
-@RunWith(classOf[Cucumber])
-@CucumberOptions(
-  features = Array("classpath:features/Example.feature"),
-  tags = "not @Wip",
-  glue = Array("classpath:steps"),
-  plugin = Array("pretty", "html:target/cucumber/html"))
+@Suite
+@IncludeEngines(Array("cucumber"))
+@SelectClasspathResource("features/Example.feature")
 class ExampleFeatureRunnerTest
-
