@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
-PLUGINS="--plugin pretty --plugin html:cucumber/index.html --plugin json:cucumber/json/cucumber.json"
-mvn exec:java -Dcucumber.options="${PLUGINS} --tags 'not @Wip' --tags @ExampleFeature --glue steps classpath:features"
+mvn exec:java \
+  -Dcucumber.plugin="pretty,html:cucumber/index.html,json:cucumber/json/cucumber.json" \
+  -Dcucumber.filter.tags="not @Wip and @ExampleFeature" \
+  -Dcucumber.glue="steps" \
+  -Dcucumber.features="classpath:features"
