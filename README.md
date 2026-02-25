@@ -1,13 +1,13 @@
-## Cucumber JVM Scala Example 
+## Cucumber JVM Scala Example
 
 [![Build](https://github.com/jecklgamis/cucumber-jvm-scala-example/actions/workflows/build.yml/badge.svg)](https://github.com/jecklgamis/cucumber-jvm-scala-example/actions/workflows/build.yml)
 
 ## Requirements
-* JDK 21
+* JDK 25
 
 This is an example Cucumber-JVM project.
 
-* Uses Scala step definitions
+* Uses Scala 3 step definitions
 * Packages tests into executable jar file
 
 ## Getting Started
@@ -19,7 +19,7 @@ test in IDE or command line (see Running Cucumber Tests).
 
 * Feature files - contains the BDD feature definitions (Gherkin, e.g. `Example.feature`)
 * Step definitions - Implementation of the step definitions (Scala, e.g. `ExampleSteps.scala`)
-* Test runners - run specific feature set ( Scala with Junit annotations, e.g. `ExampleTestRunner.scala`). 
+* Test runners - run specific feature set (Scala with JUnit 5 annotations, e.g. `ExampleFeatureRunnerTest.scala`)
 
 ## Creating Tests
 
@@ -47,34 +47,40 @@ Feature: Example feature
     And I can also verify that
 ```
 
-### Creating Test Runner
-See the example below and change the appropriate values of the CucumberOptions annotation.
+### Creating Test Runners
 
+Use the JUnit 5 Platform Suite API:
+
+```scala
+import org.junit.platform.suite.api.{IncludeEngines, SelectClasspathResource, Suite}
+
+@Suite
+@IncludeEngines(Array("cucumber"))
+@SelectClasspathResource("features/Example.feature")
+class ExampleFeatureRunnerTest
 ```
-@RunWith(classOf[Cucumber])
-@CucumberOptions(
-  features = Array("classpath:features/Example.feature"),
-  tags = Array("not @Wip"),
-  glue = Array("classpath:steps"),
-  plugin = Array("pretty", "html:target/cucumber/html"))
-class ExampleFeatureRunner
+
+Configure glue, tag filters, and plugins in `src/test/resources/junit-platform.properties`:
+
+```properties
+cucumber.glue=steps
+cucumber.filter.tags=not @Wip and @ExampleFeature
+cucumber.plugin=pretty,html:target/cucumber/html
 ```
-* This runs all scenarios in `Example.feature` not tagged with `@Wip`
-* The step definitions are loaded from class path `steps`
-* This generates reports in `target/cucumber/html` folder relative to some execution path
 
 ### ANDing, NEGating, and ORing Cucumber Tags
 
 * `not` negates a tag
-* Comma separated tags are ORed (example `tags = Array("@FeatureSet1,@FeatureSet2")` means run both feature sets)
-* Separated tags are ANDed (example `tags = Array("not @Wip","@FeatureSet1")` means run `@FeatureSet1` but not those tagged with `@Wip`)
+* `and` ANDs tags (e.g. `not @Wip and @ExampleFeature`)
+* `or` ORs tags (e.g. `@FeatureSet1 or @FeatureSet2`)
 
 ### Implementing Steps/Glue
-After you create the feature files, run the test runner, it will give you hints on the missing steps you need to implement
+After you create the feature files, run the test runner — it will give you hints on the missing steps you need to implement.
 
 Example (`ExampleSteps.scala`)
-```
-Given("""^this pre condition$""") { () =>
+```scala
+class ExampleSteps extends ScalaDsl with EN {
+  Given("""^this pre condition$""") { () =>
     //// Write code here that turns the phrase above into concrete actions
   }
   When("""^I do this$""") { () =>
@@ -83,45 +89,38 @@ Given("""^this pre condition$""") { () =>
   Then("""^I can verify that$""") { () =>
     //// Write code here that turns the phrase above into concrete actions
   }
-  Then("""^I can also verify that$""") { () =>
-    //// Write code here that turns the phrase above into concrete actions
-  }
 }
 ```
 
 ### Running Cucumber Tests from CLI
 
-Using maven test:
+Using Maven test:
 ```
-mvn test
+./mvnw test
 ```
 
 Using executable jar file:
 ```
-mvn clean package
-PLUGINS="--plugin pretty --plugin html:cucumber/html --plugin json:cucumber/json/cucumber.json"
-java -jar target/cucumber-jvm-scala-example.jar ${PLUGINS} --glue steps classpath:features  --tags "not @Wip" --tags @ExampleFeature
+./mvnw clean package
+./run-all-tests-using-jar.sh
 ```
 
-Using maven exec:plugin: 
+Using Maven exec plugin:
 ```
-PLUGINS="--plugin pretty --plugin html:cucumber/html --plugin json:cucumber/json/cucumber.json"
-mvn exec:java -Dcucumber.options="${PLUGINS} --tags @ExampleFeature --tags 'not @Wip' --glue steps classpath:features"
+./run-all-tests-using-plugin.sh
 ```
 
-The above command line examples generate reports in `cucumber/html` and in  `cucumber/json` directories.
+The above commands generate reports in `cucumber/html` and `cucumber/json` directories.
 
 Using Docker:
 
-Build Docker image (see `build-docker-image.sh`)
-```shell script
-IMAGE_NAME=jecklgamis/cucumber-jvm-scala-example
-IMAGE_TAG=latest
-docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+Build Docker image:
+```shell
+make all
 ```
 
-Run Docker image (see `run-all-tests-using-docker.sh`)
-```shell script
+Run Docker image (see `run-all-tests-using-docker.sh`):
+```shell
 IMAGE_NAME=cucumber-jvm-scala-example
 IMAGE_TAG=main
 
@@ -135,20 +134,17 @@ docker run -e "JAVA_OPTS=${JAVA_OPTS}" -e "ARGS=${ARGS}" ${IMAGE_NAME}:${IMAGE_T
 
 Intellij:
 ```
-In the `Run/Debug Configuration` , add the steps directories (in this example, `steps`) in the `Glue` text field
+In the `Run/Debug Configuration`, add the steps directories (in this example, `steps`) in the `Glue` text field
 and right click on a specific feature then click Run.
 ```
 
 ## Sharing State In Steps
-* A number of options here, instance variables, thread local map.
+* A number of options here: instance variables, thread local map.
 
-## Other Cucumber-JVM Examples 
+## Other Cucumber-JVM Examples
 * https://github.com/jecklgamis/cucumber-jvm-scala-example
 * https://github.com/jecklgamis/cucumber-jvm-kotlin-example
 
 ## Links
 * https://cucumber.io/docs
 * http://github.com/cucumber/cucumber-jvm
-
-
-
